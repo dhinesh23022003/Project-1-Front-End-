@@ -1,0 +1,78 @@
+<div class="container form-container">
+  <div class="header-content">
+    <div class="logo-header">
+      <img src="https://i.postimg.cc/yxwkYnH3/micronix.png" alt="Micronix Logo">
+    </div>
+    <mat-toolbar color="primary" class="custom-toolbar">
+      <span class="spacer"></span>
+      <button mat-icon-button class="menu-button" (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar>
+  </div>
+
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="over" position="end" class="custom-sidenav">
+      <mat-nav-list>
+        <a mat-list-item routerLink="/warrantysubmission" routerLinkActive="active" class="nav-link">
+          <mat-icon>business</mat-icon>
+          <span class="nav-text">Warranty Submission</span>
+        </a>
+        <a mat-list-item routerLink="/deliverydetails" routerLinkActive="active" class="nav-link">
+          <mat-icon>bolt</mat-icon>
+          <span class="nav-text">Delivery Details</span>
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="content-area">
+      <h2>Parcel Details</h2>
+      <p>Please fill in the information</p>
+
+      <form [formGroup]="deliveryForm" (ngSubmit)="onSubmit(modalContent)">
+        <div class="form-group">
+          <label for="serviceProvider">Parcel Service Provider Name*</label>
+          <input id="serviceProvider" type="text" class="form-control" formControlName="serviceProvider" placeholder="Enter name of service provider">
+          <div *ngIf="submitted && f['serviceProvider'].errors" class="text-danger">Service provider name is required</div>
+        </div>
+
+        <div class="form-group">
+          <label for="receiptNumber">Delivery Receipt No / Docket No*</label>
+          <input id="receiptNumber" type="text" class="form-control" formControlName="receiptNumber" placeholder="Enter receipt No/ Docket No">
+          <div *ngIf="submitted && f['receiptNumber'].errors" class="text-danger">Receipt number is required</div>
+        </div>
+
+        <div class="form-group">
+          <label for="deliveryDate">Delivery Date*</label>
+          <mat-form-field appearance="outline" class="full-width">
+            <input matInput [matDatepicker]="picker" formControlName="deliveryDate" placeholder="dd/MM/yyyy">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <div *ngIf="submitted && f['deliveryDate'].errors" class="text-danger">Delivery date is required</div>
+        </div>
+        <br>
+        <br>
+
+        <div class="form-group button-container">
+          <button type="submit" class="btn btn-danger btn-block">Submit</button>
+        </div>
+      </form>
+      <ng-template #modalContent>
+        <div class="modal-header">
+          <h4 class="modal-title">Parcel Details Submitted</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modalService.dismissAll()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Delivery Request No - {{deliveryrequestno}}</p>
+          <p>Thanks for the details. We will keep you posted about the status.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger btn-block" (click)="modalService.dismissAll()">Ok</button>
+        </div>
+      </ng-template>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

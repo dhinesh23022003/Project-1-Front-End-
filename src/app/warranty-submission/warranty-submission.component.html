@@ -1,0 +1,91 @@
+<div class="container form-container">
+    <div class="header-content">
+      <div class="logo-header">
+        <img src="https://i.postimg.cc/yxwkYnH3/micronix.png" alt="Micronix Logo">
+      </div>
+      <mat-toolbar color="primary" class="custom-toolbar">
+        <span class="spacer"></span>
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </mat-toolbar>
+    </div>
+  
+    <mat-sidenav-container class="sidenav-container">
+      <mat-sidenav #sidenav mode="over" position="end" class="custom-sidenav">
+        <mat-nav-list>
+          <a mat-list-item routerLink="/warrantysubmission" routerLinkActive="active" class="nav-link">
+            <mat-icon>business</mat-icon>
+            <span class="nav-text">Warranty Submission</span>
+          </a>
+          <a mat-list-item routerLink="/deliverydetails" routerLinkActive="active" class="nav-link">
+            <mat-icon>bolt</mat-icon>
+            <span class="nav-text">Delivery Details</span>
+          </a>
+        </mat-nav-list>
+      </mat-sidenav>
+  
+      <mat-sidenav-content class="content-area">
+        <h2>Welcome Micronix</h2>
+    <p>Please fill in the information to create a service request</p>
+  
+    <form [formGroup]="serviceRequestForm" (ngSubmit)="onSubmit(modalContent)">
+      <div class="form-group">
+        <label for="name">Name*</label>
+        <input id="name" type="text" class="form-control" formControlName="name" placeholder="Enter your name">
+        <div *ngIf="submitted && f['name'].errors" class="text-danger">Name is required</div>
+      </div>
+  
+      <div class="form-group">
+        <label for="mobile">Mobile Number*</label>
+        <input id="mobile" type="text" class="form-control" formControlName="mobile" placeholder="+91 7863549833">
+        <div *ngIf="submitted && f['mobile'].errors" class="text-danger">Mobile number is required (e.g., +91 7863549833)</div>
+      </div>
+  
+      <div class="form-group">
+        <label for="invoiceDate">Invoice Date*</label>
+        <br>
+        <mat-form-field appearance="outline" class="full-width">
+          <input matInput [matDatepicker]="picker" formControlName="invoiceDate" placeholder="dd/MM/yyyy">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <div *ngIf="submitted && f['invoiceDate'].errors" class="text-danger" >Invoice date is required</div>
+      </div>
+      
+  
+      <div class="form-group">
+        <label for="batterySerial">Battery Serial Number*</label>
+        <input id="batterySerial" type="text" class="form-control" formControlName="batterySerial" placeholder="Enter serial number">
+        <div *ngIf="submitted && f['batterySerial'].errors" class="text-danger">Battery serial number is required</div>
+      </div>
+  
+      <div class="form-group">
+        <label for="description">Describe the Issue</label>
+        <textarea id="description" class="form-control" formControlName="description" placeholder="Describe the issue"></textarea>
+      </div>
+  
+      <button type="submit" class="btn btn-danger btn-block">Submit</button>
+    </form>
+  
+    <!-- Modal Template -->
+    <ng-template #modalContent>
+      <div class="modal-header">
+        <h4 class="modal-title">Service Request Submitted</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modalService.dismissAll()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img src="https://i.postimg.cc/9XKnHVt0/Screenshot-2024-09-22-093935.png" id="modalContentpic">
+        <p>Service Request No - {{serviceRequestNo}}</p>
+        <p>Thanks for creating a service request. Our team will get in touch with you shortly.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger btn-full" (click)="modalService.dismissAll()">Ok</button>
+      </div>
+    </ng-template>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  

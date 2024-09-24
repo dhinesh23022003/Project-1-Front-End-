@@ -1,0 +1,47 @@
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-calendar-body-selected {
+    background-color: #ff5252 !important; 
+    color: white !important;
+  }
+  
+  .mat-calendar-body-selected:hover {
+    background-color: #d32f2f !important; 
+  }
+  
+
+  .mat-calendar-body-selected .mat-calendar-body-cell {
+    color: white !important; 
+  }
+  /* Override styles for the Angular Material datepicker */
+.mat-datepicker-content {
+  background-color: white !important; /* Set background color to white */
+}
+
+.mat-calendar {
+  background-color: white !important; /* Ensure calendar background is white */
+}
+
+.mat-calendar-body-selected {
+  background-color: #ff5252; /* Keep selected date background */
+  color: white; /* Keep selected date text color */
+}
+
+.mat-calendar-body-selected:hover {
+  background-color: #d32f2f; /* Hover effect for selected date */
+}
+
+.mat-calendar-table-header {
+  background-color: #c2b8b8; /* Header color for the calendar */
+  color: white; /* Header text color */
+}
+
+.mat-calendar-body-cell {
+  color: black; /* Default text color for calendar cells */
+}
+
+
+  

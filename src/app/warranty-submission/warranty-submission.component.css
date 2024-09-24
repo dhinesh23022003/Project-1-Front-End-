@@ -1,0 +1,185 @@
+.container {
+    max-width: 400px; 
+    margin: 20px auto;
+    background-color: white; 
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header-content {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between; 
+  }
+  
+  .logo-header img {
+    display: block;
+    max-width: 100px; 
+    margin-left: 13px; /* Adjust this value as needed */
+  }
+  
+  
+  .custom-toolbar {
+    margin-left: auto; 
+  }
+  
+  .spacer {
+    flex: 1; 
+  }
+  
+  .sidenav-container {
+    height: calc(100% - 60px);
+    background-color: white;
+  }
+  
+  .custom-sidenav {
+    width: 250px;
+    background-color: white; 
+    border-radius: 0;
+  }
+  
+  .mat-sidenav {
+    background: white !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+  }
+  
+  .mat-sidenav-content {
+    background-color: white !important; 
+  }
+  .mat-toolbar {
+    background-color: white !important; 
+  }
+  
+  .content-area {
+    padding: 20px; 
+    background-color: white;
+  }
+  
+  h2 {
+    font-size: 24px;
+    text-align: left;
+    margin-bottom: 15px;
+  }
+  
+  p {
+    text-align: left;
+    font-size: 14px;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-control, .mat-form-field-wrapper {
+    font-size: 14px;
+    width: 100%; 
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background-color: white;
+  }
+  
+  .text-danger {
+    color: red;
+  }
+  
+  .btn-block {
+    width: 100%;
+  }
+  
+  .modal-header {
+    background-color: #f8f8f8;
+  }
+  
+  .modal-title {
+    color: #333;
+    font-size: 18px;
+  }
+  
+  .modal-footer {
+    text-align: center;
+  }
+  
+  .modal-footer .btn {
+    display: block;
+    margin: 0 auto;
+    width: 80px;
+  }
+  
+  .modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  #modalContentpic {
+    max-width: 25%;
+    height: auto;
+    margin-bottom: 15px;
+  }
+  
+  .mat-datepicker-popup {
+    max-width: 360px;
+  }
+  
+  .mat-calendar {
+    width: 360px;
+  }
+  
+  .mat-calendar-table-header,
+  .mat-calendar-body-selected {
+    background-color: #ff5252; 
+  }
+
+  .close {
+    border: none;
+    background: transparent;
+    outline: none;
+    box-shadow: none;
+    font-size: 40px; /* Adjust the size as needed */
+    padding: 10px;   /* Add padding for better click area */
+    position: absolute; /* Use absolute positioning */
+    right: 15px;      /* Distance from the right */
+    top: 35px;        /* Adjust the top distance */
+    transform: translateY(-50%); /* Adjust vertical alignment */
+    cursor: pointer;  /* Change cursor on hover */
+  }
+
+  
+  .mat-calendar-body-selected {
+    color: white;
+  }
+  
+  .mat-calendar-body-selected:hover {
+    background-color: #d32f2f; 
+  }
+  
+  .mat-calendar-table-header {
+    background-color: #ff5252; 
+  }
+  
+  .mat-calendar-body-selected .mat-calendar-body-cell {
+    color: white; 
+  }
+  
+  .mat-form-field,
+  .mat-card,
+  .mat-dialog-container,
+  .mat-menu-panel,
+  .mat-input-element {
+    background-color: white !important; 
+  }
+  
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+    background-color: white !important; 
+  }
+  
+  .btn-full {
+    width: 100%; /* Make the button full width */
+  }
